@@ -14,6 +14,6 @@
 - オブジェクト
 - リスト
 
-## [中級：Pair of Cards](./level2_pairOfCards.js)
+### [中級：Pair of Cards](./level2_pairOfCards.js)
 - データ構造
 - コンセプト慣れ
