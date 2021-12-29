@@ -6,7 +6,7 @@
 - 変数
 - 関数
 
-### [初級；関数特訓](./level1_function.js)
+### [初級：関数特訓](./level1_function.js)
 - 達成率(21/23)
 
 ## [中級](./level2.js)
