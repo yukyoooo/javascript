@@ -17,3 +17,6 @@
 ### [中級：Pair of Cards](./level2_pairOfCards.js)
 - データ構造
 - コンセプト慣れ
+
+### [中級：User Profile Cards](./UserProfileCards)
+- javascript DOM(Document Object Model)の学習
