@@ -20,3 +20,7 @@
 
 ### [中級：User Profile Cards](./UserProfileCards)
 - javascript DOM(Document Object Model)の学習
+
+### [中級：Switching Sliders](./SwitchingSliders)
+- javascript DOM(Document Object Model)の学習
+    - Event Listener
