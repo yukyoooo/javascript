@@ -20,6 +20,9 @@
 ### [中級：再帰特訓](./level2_recursion.js)
 - 達成率(11/15)
 
+### [中級：for/while文特訓](./level2_for_while.js)
+- 達成率(8/9)
+
 ### [中級：Pair of Cards](./level2_pairOfCards.js)
 - データ構造
 - コンセプト慣れ
