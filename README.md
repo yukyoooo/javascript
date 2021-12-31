@@ -37,3 +37,9 @@
 ### [中級：Banking App](./BankingApp)
 - javascript DOM(Document Object Model)の学習
 - classの学習
+
+### [上級](./level3.js)
+- [データ構造](./データ構造学習.md)
+- 木構造
+- ラムダ関数
+- ソフトウェアテスト
