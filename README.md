@@ -33,3 +33,7 @@
 ### [中級：Switching Sliders](./SwitchingSliders)
 - javascript DOM(Document Object Model)の学習
     - Event Listener
+
+### [中級：Banking App](./BankingApp)
+- javascript DOM(Document Object Model)の学習
+- classの学習
