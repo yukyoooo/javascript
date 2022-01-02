@@ -1,5 +1,6 @@
 # コンピュータサイエンスの学習
-
+recursion学習記録
+[recursion](https://recursionist.io/dashboard)
 ## [初級](./level1.js)
 - データ
 - プリミティブ型
