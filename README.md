@@ -45,5 +45,5 @@ recursion学習記録
 - ラムダ関数
 - ソフトウェアテスト
 
-### [上級：データ構造特訓](./level3_detaStructure.js)
+### [上級：データ構造特訓](./level3_dataStructure.js)
 - 達成率(3/12)
