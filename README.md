@@ -39,8 +39,11 @@ recursion学習記録
 - javascript DOM(Document Object Model)の学習
 - classの学習
 
-### [上級](./level3.js)
+## [上級](./level3.js)
 - [データ構造](./データ構造学習.md)
 - 木構造
 - ラムダ関数
 - ソフトウェアテスト
+
+### [上級：データ構造特訓](./level3_detaStructure.js)
+- 達成率(3/12)
