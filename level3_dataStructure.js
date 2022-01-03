@@ -150,31 +150,24 @@ class SinglyLinkedListNode{
  * @return {SinglyLinkedListNode} 
  */
 function removeNthNode(head,n){
-    // 場合分けを避けるために、ダミーノードを作成して先頭に入れておきます。
     let dummyNode = new SinglyLinkedListNode(0);
     dummyNode.next = head;
 
-    // リストを走査して要素の数を数えます。
     let iterator = head;
     let count = 1;
     while (iterator.next != null) {
         iterator = iterator.next;
         count++;
     }
-    // 要素の数よりnが大きい時はそのままheadを返します。
     if (count < n) return head;
 
-    // ダミーノードから始めます。
     iterator = dummyNode;
     let i = 0;
-    // 末尾からn番目にiteratorを進めます。
     while (i < count - n) {
         iterator = iterator.next;
         i++;
     }
-    // 現在n番目を指しているnextをその次のノードに付け替えます。
     iterator.next = iterator.next.next;
-    // ダミーノードの次のノードを返します。
     return dummyNode.next;
 }
 class SinglyLinkedListNode{
