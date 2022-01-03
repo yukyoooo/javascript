@@ -238,6 +238,27 @@ function consecutiveWalk(arr){
 }
 
 /**
+ * 株式分析
+ * @param {integer[]} stocks 
+ * @return {integer[]} 
+ */
+function stockSpan(stocks){
+    let stack = [];
+    let results = [];
+
+    for(let i = 0; i < stocks.length; i++) {
+        let current = stocks[i];
+        let counter = 1;
+
+        while(stack.length > 0 && stocks[stack[stack.length-1]] < current) counter += results[stack.pop()];
+
+        results.push(counter);
+        stack.push(i);
+    }
+    return results;
+}
+
+/**
  * サイズkの部分配列の最小値
  * @param {integer[]} intArr 
  * @param {integer} k 
