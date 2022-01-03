@@ -191,3 +191,77 @@ function reproduceByN(head,n){
 
     return newHead.next;
 }
+
+
+// スタック
+/**
+ * 賭けサイコロゲーム
+ * @param {integer[]} player1 
+ * @param {integer[]} player2 
+ * @param {integer[]} player3 
+ * @param {integer[]} player4 
+ * @return {string} 
+ */
+function diceStreakGamble(player1, player2, player3, player4){
+    const scores = [
+        consecutiveWalk(player1),
+        consecutiveWalk(player2),
+        consecutiveWalk(player3),
+        consecutiveWalk(player4)
+    ];
+
+    let maxScore = scores[0].length;
+    let index = 0;
+
+    for(let i=0; i<scores.length; i++){
+        if(maxScore < scores[i].length){
+            maxScore = scores[i].length;
+            index = i;
+        }
+    }
+
+    return `Winner: Player ${index+1} won $${maxScore * 4} by rolling [${scores[index]}]`;
+}
+function consecutiveWalk(arr){
+    stack = [];
+    stack.push(arr[0]);
+
+    for(let i=1; i<arr.length; i++){
+        if(stack[stack.length - 1] > arr[i]){
+            let max = 0;
+            while(stack.pop() != undefined);
+        }
+        stack.push(arr[i]);
+    }
+
+    return stack;
+}
+
+/**
+ * サイズkの部分配列の最小値
+ * @param {integer[]} intArr 
+ * @param {integer} k 
+ * @return {integer[]} 
+ */
+function minWindowArrK(intArr,k){
+
+    let deque = [];
+    let results = [];
+
+    for(let i = 0; i < k; i++){
+        while(deque.length !== 0 && intArr[deque[deque.length-1]] >= intArr[i]){
+            deque.pop();
+        }
+        deque.push(i);
+    }
+
+    for(let i = k; i < intArr.length; i++){
+        results.push(intArr[deque[0]]);
+        while(deque[0] !== null && deque[0] <= i-k) deque.shift();
+        while(deque[deque.length-1] !== null && intArr[deque[deque.length-1]] >= intArr[i]) deque.pop();
+        deque.push(i);
+    }
+
+    results.push(intArr[deque[0]]);
+    return results;
+}    
