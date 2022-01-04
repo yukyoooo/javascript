@@ -176,3 +176,26 @@ class SinglyLinkedListNode{
         this.next = null;
     }
 }
+
+/**
+ * 真ん中のノード
+ * @param {SinglyLinkedListNode} head 
+ * @return {SinglyLinkedListNode} 
+ */
+function middleNode(head){
+    let slow = head;
+    let fast = head;
+
+    while (fast != null && fast.next != null ) {
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+
+    return slow;
+}
+class SinglyLinkedListNode{
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+}
