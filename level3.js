@@ -286,3 +286,95 @@ function minWindowArrK(intArr,k){
     results.push(intArr[deque[0]]);
     return results;
 }    
+
+
+// 木構造
+/**
+ * 二分探索木内探索
+ * @param {binaryTree} root
+ * @param {integer} key
+ * @return {binaryTree} 
+ */
+function bstSearch(root, key) {
+    let iterator = root;
+    while (iterator != null) {
+        if (iterator.data == key) return iterator;
+        if (iterator.data < key) iterator = iterator.right;
+        else iterator = iterator.left;
+    }
+    return iterator;
+}
+class BinaryTree{
+    constructor(data, left = null, right = null){
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+/**
+ * 二分探索木内のキー
+ * @param {binaryTree} root
+ * @param {integer} key
+ * @return {bool} 
+ */
+function exists(root,key){
+    let iterator = root;
+
+    while (iterator != null) {
+        if (iterator.data == key) return true;
+        if (iterator.data < key) iterator = iterator.right;
+        else iterator = iterator.left;
+    }
+    return false;
+}
+class BinaryTree{
+    constructor(data, left = null, right = null){
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+/**
+ * 二分探索木内の最小値
+ * @param {binaryTree} root
+ * @return {binaryTree} 
+ */
+function minimumNode(root){
+    let iterator = root;
+    while (iterator != null && iterator.left != null) {
+        iterator = iterator.left;
+    }
+    return iterator;
+}
+class BinaryTree{
+    constructor(data, left = null, right = null){
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+/**
+ * 二分探索木内の最大値
+ * @param {binaryTree} root
+ * @return {binaryTree} 
+ */
+function maximumNode(root){
+    // iterator に root を入れます。
+    let iterator = root;
+    // 右側の子が null になるまで右に進めます。
+    while(iterator.right != null){
+        iterator = iterator.right;
+    }
+    // 右側の子がnullになったらノードを返します。
+    return iterator;
+}
+class BinaryTree{
+    constructor(data, left = null, right = null){
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
