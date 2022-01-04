@@ -378,3 +378,52 @@ class BinaryTree{
         this.right = right;
     }
 }
+
+/**
+ * 二分探索木内の後続ノード
+ * @param {binaryTree} root 
+ * @param {integer} key 
+ * @return {binaryTree} 
+ */
+function successor(root,key){
+    let targetNode = findNode(root, key);
+    if (targetNode == null) return null;
+
+    if (targetNode.right != null) return minimumNode(targetNode.right);
+
+    let successor = null;
+    let iterator = root;
+    while (iterator != null) {
+
+        if (targetNode.data == iterator.data) return successor;
+        if (targetNode.data < iterator.data) {
+            successor = iterator;
+            iterator = iterator.left;
+        }
+        else iterator = iterator.right;
+    }
+    return successor;
+}
+function findNode(root, key) {
+    let iterator = root;
+
+    while (iterator != null) {
+        if (iterator.data == key) return iterator;
+        if (iterator.data < key) iterator = iterator.right;
+        else iterator = iterator.left;
+    }
+
+    return iterator;
+}
+function minimumNode(root){
+    let iterator = root;
+    while (iterator != null && iterator.left != null) iterator = iterator.left;
+    return iterator;
+}
+class BinaryTree{
+    constructor(data, left = null, right = null){
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
