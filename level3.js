@@ -427,3 +427,80 @@ class BinaryTree{
         this.right = right;
     }
 }
+
+/**
+ * 二分探索木内の先行ノード
+ * @param {binaryTree}} root 
+ * @param {integer} key 
+ * @return {binaryTree} 
+ */
+function predecessor(root,key){
+    // 関数を完成させてください
+    let targetNode = findNode(root, key);
+    if(targetNode == null) return null;
+
+    if(targetNode.left != null) return maxNode(targetNode.left);
+
+    let predecessor = null;
+    let iterator = root;
+    while(iterator != null){
+        if(targetNode.data == iterator.data) return predecessor;
+        if(targetNode.data > iterator.data){
+            predecessor = iterator;
+            iterator = iterator.right;
+        }else iterator = iterator.left;
+    } 
+    return predecessor;
+}
+function findNode(root, key){
+    let iterator = root;
+    while(iterator != null){
+        if(iterator.data == key) return iterator;
+        if(iterator.data < key) iterator = iterator.right;
+        else iterator = iterator.left;
+    }
+
+    return iterator;
+}
+function maxNode(root){
+    let iterator = root;
+    while(iterator != null && iterator.right != null) iterator = iterator.right;
+    return iterator;
+}
+class BinaryTree{
+    constructor(data, left = null, right = null){
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+
+/**
+ * ソート済み配列を二分探索木へ変換
+ * @param {integer[]} numberList 
+ * @returns 
+ */
+function sortedArrToBST(numberList){
+    // 関数を完成させてください
+    if(numberList.length == 0)return null;
+    return sortedArrToBSTHelper(numberList, 0, numberList.length-1)
+}
+function sortedArrToBSTHelper(num, start, end){
+    let mid = Math.floor((start + end)/2);
+    let left = null;
+    if(mid-1 >= start) left = sortedArrToBSTHelper(num, start, mid-1);
+
+    let right = null;
+    if(mid+1 <= end) right = sortedArrToBSTHelper(num, mid+1, end);
+
+    let root = new BinaryTree(num[mid], left, right);
+    return root
+}
+class BinaryTree{
+    constructor(data, left = null, right = null){
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
