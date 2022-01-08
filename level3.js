@@ -289,6 +289,13 @@ function minWindowArrK(intArr,k){
 
 
 // 木構造
+class BinaryTree{
+    constructor(data, left = null, right = null){
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
 /**
  * 二分探索木内探索
  * @param {binaryTree} root
@@ -303,13 +310,6 @@ function bstSearch(root, key) {
         else iterator = iterator.left;
     }
     return iterator;
-}
-class BinaryTree{
-    constructor(data, left = null, right = null){
-        this.data = data;
-        this.left = left;
-        this.right = right;
-    }
 }
 
 /**
@@ -328,13 +328,6 @@ function exists(root,key){
     }
     return false;
 }
-class BinaryTree{
-    constructor(data, left = null, right = null){
-        this.data = data;
-        this.left = left;
-        this.right = right;
-    }
-}
 
 /**
  * 二分探索木内の最小値
@@ -348,13 +341,6 @@ function minimumNode(root){
     }
     return iterator;
 }
-class BinaryTree{
-    constructor(data, left = null, right = null){
-        this.data = data;
-        this.left = left;
-        this.right = right;
-    }
-}
 
 /**
  * 二分探索木内の最大値
@@ -362,21 +348,11 @@ class BinaryTree{
  * @return {binaryTree} 
  */
 function maximumNode(root){
-    // iterator に root を入れます。
     let iterator = root;
-    // 右側の子が null になるまで右に進めます。
     while(iterator.right != null){
         iterator = iterator.right;
     }
-    // 右側の子がnullになったらノードを返します。
     return iterator;
-}
-class BinaryTree{
-    constructor(data, left = null, right = null){
-        this.data = data;
-        this.left = left;
-        this.right = right;
-    }
 }
 
 /**
@@ -420,13 +396,6 @@ function minimumNode(root){
     while (iterator != null && iterator.left != null) iterator = iterator.left;
     return iterator;
 }
-class BinaryTree{
-    constructor(data, left = null, right = null){
-        this.data = data;
-        this.left = left;
-        this.right = right;
-    }
-}
 
 /**
  * 二分探索木内の先行ノード
@@ -467,14 +436,6 @@ function maxNode(root){
     while(iterator != null && iterator.right != null) iterator = iterator.right;
     return iterator;
 }
-class BinaryTree{
-    constructor(data, left = null, right = null){
-        this.data = data;
-        this.left = left;
-        this.right = right;
-    }
-}
-
 
 /**
  * ソート済み配列を二分探索木へ変換
@@ -497,10 +458,89 @@ function sortedArrToBSTHelper(num, start, end){
     let root = new BinaryTree(num[mid], left, right);
     return root
 }
-class BinaryTree{
-    constructor(data, left = null, right = null){
-        this.data = data;
-        this.left = left;
-        this.right = right;
-    }
+
+/**
+ * 前順(二分木)
+ * @param {binaryTree} root 
+ * @return {integer[]} 
+ */
+function preorderTraversal(root){
+    return preorderTraversalHelper(root, []);
 }
+function preorderTraversalHelper(root, arr) {
+    if (root == null) return null;
+    arr.push(root.data);
+    preorderTraversalHelper(root.left, arr);    
+    preorderTraversalHelper(root.right, arr);  
+    return arr;
+}
+
+/**
+ * 間順（二分木）
+ * @param {binaryTree} root 
+ * @return {integer[]} 
+ */
+function inorderTraversal(root){
+    return inorderTraversalHelper(root, [])
+}
+function inorderTraversalHelper(root, arr){
+    if(root != null){
+        inorderTraversalHelper(root.left,arr);
+        arr.push(root.data);
+        inorderTraversalHelper(root.right,arr);
+    }
+    return arr
+}
+
+/**
+ * 後順（二分木）
+ * @param {binaryTree} root 
+ * @return {integer[]} 
+ */
+function postorderTraversal(root){
+    return postorderTraversalHelper(root, []);
+}
+
+function postorderTraversalHelper(root, arr){
+    if(root != null){
+        postorderTraversalHelper(root.left, arr);
+        postorderTraversalHelper(root.right, arr);
+        arr.push(root.data);
+    }
+    return arr
+}
+
+/**
+ * 逆間順（二分木）
+ * @param {binaryTree} root 
+ * @return {integer[]} 
+ */
+function reverseInorderTraversal(root){
+    return reverseInorderTraversalHelper(root, [])
+}
+function reverseInorderTraversalHelper(root, arr){
+    if(root == null)return null;
+    reverseInorderTraversalHelper(root.right, arr);
+    arr.push(root.data);
+    reverseInorderTraversalHelper(root.left, arr);
+    return arr
+}
+
+/**
+ * 二分木の最大の深さ
+ * @param {binaryTree} root 
+ * @returns 
+ */
+function maximumDepth(root){
+    if (root == null) return 0;
+    if (root.left == null && root.right == null) return 1;
+    return maximumDepthHelper(root,0);
+}
+function maximumDepthHelper(root, count) {
+    // rootの左の子がnullになるまで左へ進み、nullになったらcountに1を足し変数leftに代入します。
+    let left = root.left != null ? maximumDepthHelper(root.left, count+1) : count+1;
+    // rootの右の子がnullになるまで右へ進み、nullになったらcountに1を足し変数rightに代入します。
+    let right = root.right != null ? maximumDepthHelper(root.right, count+1) : count+1;
+    return Math.max(left, right);
+}
+
