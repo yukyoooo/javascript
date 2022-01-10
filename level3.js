@@ -544,3 +544,67 @@ function maximumDepthHelper(root, count) {
     return Math.max(left, right);
 }
 
+/**
+ * 二分探索木への挿入
+ * @param {binaryTree} root 
+ * @param {integer} key 
+ * @return {binaryTree} 
+ */
+function bstInsert(root,key) {
+    if (root == null) return new BinaryTree(key);
+    if (root.data == key) return root;
+
+    if (key > root.data) root.right = bstInsert(root.right, key);
+    else root.left = bstInsert(root.left, key);
+    return root;
+}
+
+/**
+ * 有効な二分木
+ * @param {binaryTree} root 
+ * @return {bool} 
+ */
+function validateBST(root){
+    return validateBSTHelper(root, null, null);
+}
+// ヘルパー関数で再帰します。
+function validateBSTHelper(root, min, max) {
+    // 木が空の時はtrueを返します。
+    if (root == null) return true;
+    // 現在のノードのデータを代入します。
+    let data = root.data; // (1)
+
+    // 現在のノードのデータと引数で渡された親ノードのデータを比較します。
+    // 再帰によって右の子へ進んだ場合、現在のデータよりもminに入っている親ノードのデータが大きかったらfalse
+    if (min != null && min >= data) return false; // (2)
+    // 再帰によって左の子へ進んだ場合、現在のデータよりもmaxに入っている親ノードのデータが小さかったらfalse
+    if (max != null && max <= data) return false; //(3)
+
+    // 現在のノードのdataを渡し再帰的に繰り返します。
+    // 葉ノードまでたどり着いたらそれぞれの変数にtrueを代入します。
+    let left = root.left != null ? validateBSTHelper(root.left, min, data) : true; // (4)
+    let right = root.right != null ? validateBSTHelper(root.right, data, max) : true; // (5)
+
+    // leftもrightもtrueの場合true
+    return left && right; // (6)
+}
+
+/**
+ * 対称的な二分木
+ * @param {binaryTree} root 
+ * @return {bool} 
+ */
+function symmetricTree(root){
+    if (root == null) return true;
+    // ヘルパー関数を使い左右の子を根ノードとする部分木が同じかどうかチェックします。
+    return symmetricTreeHelper(root.left, root.right);
+}
+function symmetricTreeHelper(leftNode, rightNode) {
+    // ベースケース
+    if (leftNode == null && rightNode == null) return true;
+    if (leftNode == null || rightNode == null) return false;
+    // 二つの部分木の根ノードの値が違ったらfalse
+    if (leftNode.data != rightNode.data) return false;
+    // 「左の木の左」と「右の木の右」、「左の木の右」と「右の木の左」が対称であるか再帰的に調べます。
+    return symmetricTreeHelper(leftNode.left, rightNode.right) && symmetricTreeHelper(leftNode.right, rightNode.left);
+}
