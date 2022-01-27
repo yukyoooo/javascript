@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="index.css">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- font awesome -->
+        <link href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet">
+        </head>
+    <body>
+      <title>Book Generator</title>
+
+      <div class="bg-white d-flex justify-content-center flex-wrap">
+        <div class="bg-dark col-12 py-5 d-flex justify-content-center">
+            <div class="col-10 px-0">
+                <h1 class="m-0 font-weight-bold text-white"><i class="fas fa-book mr-3" style="color:#F6BD68;"></i>Recursion Library</h1>
+
+                <div class="pt-4 input-group md-form form-sm form-2 pl-0">
+                    <input class="form-control my-0 py-1 red-border" type="text" id="isbn-search" placeholder="ISBN Search i.e 0451526538" aria-label="ISBN Search" value="0451526538">
+                    <div class="input-group-append">
+                        <button class="input-group-text" id="isbn-search-btn" style="background-color:#F6BD68;"><i class="fas fa-search" aria-hidden="true" style="color:white;"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="book-cards" class="mt-5">
+        </div>
+      </div>
+      <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>

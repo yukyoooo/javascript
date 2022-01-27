@@ -48,4 +48,8 @@ recursion学習記録
 ### [上級：データ構造特訓](./level3_dataStructure.js)
 - 達成率(3/12)
 
+### [上級：Library Application](./LibraryApplication)
+- [サーバとAPI](./サーバとAPI学習.md)
+
 ## [データベース](./データベース学習.md)
+
